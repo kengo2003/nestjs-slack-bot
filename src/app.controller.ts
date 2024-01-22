@@ -27,18 +27,20 @@ export class AppController {
     if (!req.body) {
       return new Response();
     }
-    console.log(req);
     if ('text' in req.body) {
-      if (req.body.text == 'こんにちわ') {
-        console.log(req);
-        return req.body.text;
-      }
+      console.log(req.body.text);
+      return req.body.text;
     }
   }
 
   @Post('/console')
   console(@Req() request: Request) {
     console.log(request);
+  }
+
+  @Get('test')
+  test(): String {
+    return 'test';
   }
 
   @Get('/hello')
